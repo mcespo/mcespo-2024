@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Monaspace Xenon */
+@font-face {
+    font-display: swap;
+    font-family: "Xenon";
+    font-style: normal;
+    font-weight: 200;
+    src: url("/src/fonts/monaspace-xenon-extra-light.woff2") format("woff2");
+}
+
+:root {
+    --violet: hsl(236, 56%, 42%);
+}
+
+
+html, body {
+    background-size: 300% 300%;
+    background-color: hsl(180, 52%, 96%);
+    background-image: linear-gradient(-45deg, hsl(347, 90%, 96%) 0%, hsl(192, 24%, 96%) 25%, hsl(0, 20%, 96%) 50%, hsl(180, 52%, 96%) 100%);
+    animation: background-shift 20s ease infinite;
+}
+
+h1 {
+    font-family: "Xenon", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+a:focus {
+    @apply outline-[var(--violet)];
+}
+
+article a {
+    @apply inline-block relative py-0 z-[1] px-[2px] font-bold hover:text-white transition-colors ease-out duration-150;
+}
+
+article a:after {
+    @apply content-[''] absolute -z-[1] h-[0.15rem] left-0 bottom-0 w-full bg-[var(--violet)] transition-all ease-out duration-150 hover:h-full;
+}
+
+@keyframes background-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
